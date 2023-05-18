@@ -6,7 +6,7 @@ Built an AirBnb clone with structured content using Sanity.io and Next.js
 
 ## Setup
 
-1. Installing the CLI globally
+1. Installing the [CLI](https://www.sanity.io/docs/cli) globally
 ```
 npm install --global sanity@latest
 
