@@ -1,8 +1,10 @@
-# Sanity Clean Content Studio
+# Sanity AirBnb Clone: Demo
 
-Congratulations, you have now installed the Sanity Content Studio, an open source real-time content editing environment connected to the Sanity backend.
+## Description
 
-Now you can do the following things:
+Built an AirBnb clone with structured content using Sanity.io and Next.js
+
+## Sanity.io
 
 - [Read “getting started” in the docs](https://www.sanity.io/docs/introduction/getting-started?utm_source=readme)
 - [Join the community Slack](https://slack.sanity.io/?utm_source=readme)
