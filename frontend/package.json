@@ -1,0 +1,19 @@
+{
+  "name": "sanity-airbnb-frontent",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "NODE_OPTIONS='--inspect' next dev",
+    "wdev": "set NODE_OPTIONS=--inspect && next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
+  },
+  "dependencies": {
+    "@sanity/image-url": "^1.0.2",
+    "next": "13.4.3",
+    "next-sanity": "^4.3.2",
+    "react": "18.2.0",
+    "react-dom": "18.2.0"
+  }
+}
