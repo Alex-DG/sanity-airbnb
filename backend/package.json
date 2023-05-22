@@ -1,5 +1,5 @@
 {
-  "name": "sanity-airbnb",
+  "name": "sanity-airbnb-backend",
   "private": true,
   "version": "1.0.0",
   "main": "package.json",
