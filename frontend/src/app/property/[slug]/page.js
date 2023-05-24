@@ -1,22 +1,24 @@
 import Link from 'next/link'
-
 import { isMultiple } from '@/utils/maths'
+import { sanityClient } from '../../../../sanity'
 
-import { sanityClient } from '../../../sanity'
+export const Property = async ({ params }) => {
+  const property = await getProperty(params.slug)
 
-export const Property = ({
-  title,
-  location,
-  propertyType,
-  mainImage,
-  images,
-  pricePerNight,
-  beds,
-  bedrooms,
-  description,
-  host,
-  reviews,
-}) => {
+  const {
+    title,
+    location,
+    propertyType,
+    mainImage,
+    images,
+    pricePerNight,
+    beds,
+    bedrooms,
+    description,
+    host,
+    reviews,
+  } = property.props
+
   const reviewAmount = reviews.length
 
   return (
@@ -99,9 +101,7 @@ export const Property = ({
   )
 }
 
-export const getServerSideProps = async (pageContext) => {
-  const pageSlug = pageContext.query.slug
-
+const getProperty = async (pageSlug) => {
   const query = `*[ _type == "property" && slug.current == $pageSlug][0]{
     title,
     location,
@@ -129,7 +129,10 @@ export const getServerSideProps = async (pageContext) => {
     }
   }`
 
-  const property = await sanityClient.fetch(query, { pageSlug })
+  const property = await sanityClient.fetch(query, {
+    pageSlug,
+    next: { revalidate: 10 },
+  })
 
   if (!property) {
     return {
@@ -151,6 +154,7 @@ export const getServerSideProps = async (pageContext) => {
         host: property.host,
         reviews: property.reviews,
       },
+      notFound: false,
     }
   }
 }
