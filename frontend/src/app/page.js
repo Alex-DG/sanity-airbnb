@@ -11,16 +11,18 @@ export const dynamic = 'auto',
   preferredRegion = 'auto'
 
 const Home = () => {
-  const properties = use(getData())
+  const properties = use(getProperties())
 
-  return (
-    <Suspense fallback={<h2>Loading…</h2>}>
-      <>Home Page</>
-    </Suspense>
-  )
+  return <>Home Page</>
+
+  // return (
+  //   <Suspense fallback={<h2>Loading…</h2>}>
+  //     <>Home Page</>
+  //   </Suspense>
+  // )
 }
 
-const getData = async () => {
+const getProperties = async () => {
   const query = '*[ _type == "property"]'
 
   const properties = await sanityClient.fetch(query) // exported parameters so no need { query: 'no-store' }
