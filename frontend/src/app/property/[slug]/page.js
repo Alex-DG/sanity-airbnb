@@ -4,7 +4,8 @@ import { isMultiple } from '@/utils/maths'
 
 import { sanityClient } from '../../../../sanity'
 
-import Image from '../../components/Image'
+import Image from '@/app/components/Image'
+import Review from '@/app/components/Review'
 
 export const Property = async ({ params }) => {
   const property = await getProperty(params.slug)
@@ -26,7 +27,7 @@ export const Property = async ({ params }) => {
   } = property.props
 
   const reviewAmount = reviews?.length || 0
-  // console.log({ mainImage, images })
+  console.log({ reviews })
   return (
     <div className="container">
       <h1>
@@ -98,7 +99,8 @@ export const Property = async ({ params }) => {
       <h2>
         {reviewAmount} review{isMultiple(reviewAmount)}
       </h2>
-      {reviewAmount > 0 && reviews.map((review) => <>TODO: review</>)}
+      {reviewAmount > 0 &&
+        reviews.map((review) => <Review key={review._key} review={review} />)}
 
       <hr />
 
