@@ -1,9 +1,15 @@
 import Link from 'next/link'
+
 import { isMultiple } from '@/utils/maths'
+
 import { sanityClient } from '../../../../sanity'
+
+import Image from '../../components/Image'
 
 export const Property = async ({ params }) => {
   const property = await getProperty(params.slug)
+
+  // console.log(property)
 
   const {
     title,
@@ -19,8 +25,8 @@ export const Property = async ({ params }) => {
     reviews,
   } = property.props
 
-  const reviewAmount = reviews.length
-
+  const reviewAmount = reviews?.length || 0
+  // console.log({ mainImage, images })
   return (
     <div className="container">
       <h1>
@@ -30,10 +36,11 @@ export const Property = async ({ params }) => {
         {reviewAmount} review{isMultiple(reviewAmount)}
       </p>
       <div className="images-section">
-        {/* <Image identifier="main-image" image={mainImage} /> */}
+        <Image identifier="main-image" image={mainImage} />
+
         <div className="sub-images-section">
-          {images.map(({ _key, asset }, image) => (
-            <>TODO: image</>
+          {images.map((image) => (
+            <Image key={image._key} identifier="image" image={image} />
           ))}
         </div>
       </div>
