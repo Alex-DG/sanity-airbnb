@@ -1,6 +1,4 @@
-// import Image from 'next/image'
-// import styles from './page.module.css'
-import { use, Suspense } from 'react'
+import { use } from 'react'
 import { sanityClient } from '../../sanity'
 
 export const dynamic = 'auto',
