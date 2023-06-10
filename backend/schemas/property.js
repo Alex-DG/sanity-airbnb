@@ -77,7 +77,7 @@ export default {
     },
     {
       name: 'host',
-      title: 'Host',
+      title: 'host',
       type: 'host',
     },
     {
@@ -87,4 +87,10 @@ export default {
       of: [{type: 'review'}],
     },
   ],
+  preview: {
+    select: {
+      title: 'title',
+      pricePerNight: 'pricePerNight',
+    },
+  },
 }

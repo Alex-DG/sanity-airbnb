@@ -8,7 +8,7 @@ export default {
       title: 'Caption',
       type: 'string',
       options: {
-        isHighLight: true,
+        isHightLight: true,
       },
     },
   ],

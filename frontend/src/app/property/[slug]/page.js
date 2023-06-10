@@ -27,7 +27,7 @@ export const Property = async ({ params }) => {
   } = property.props
 
   const reviewAmount = reviews?.length || 0
-  console.log({ reviews })
+  console.log({ mainImage, images })
   return (
     <div className="container">
       <h1>
