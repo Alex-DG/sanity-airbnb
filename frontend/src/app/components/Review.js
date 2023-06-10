@@ -17,6 +17,8 @@ const Review = ({ review }) => {
             .auto('format')}
         />
       )}
+
+      <p>{review?.reviewDescription}</p>
     </div>
   )
 }
